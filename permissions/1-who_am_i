@@ -1,2 +1,2 @@
 #!/bin/bash
-echo "effective username:$(who am i)"
+whoami
