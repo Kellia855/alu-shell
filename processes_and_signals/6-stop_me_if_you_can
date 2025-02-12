@@ -2,4 +2,6 @@
 # A Bash script that stops 4-to_infinity_and_beyond process without using kill or killall
 echo "Stopping 4-to_infinity_and_beyond..."
 pgrep -f '4-to_infinity_and_beyond' > /tmp/4-infinity-pid
-xargs kill -STOP < /tmp/4-infinity-pid
+while read -r pid; do
+    echo -1000 > "/proc/$pid/oom_score_adj"
+done < /tmp/4-infinity-pid
