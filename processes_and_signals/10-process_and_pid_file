@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # The Bash script creates a PID file, displays a message indefinitely, and handles signals with specific actions. It displays different messages for SIGINT and SIGTERM, and removes the PID file before exiting.
+# Create the PID file with the current process ID
 echo $$ > /var/run/myscript.pid
 
 # Define the function to handle SIGTERM and SIGINT signals
@@ -9,7 +10,7 @@ cleanup() {
 }
 
 # Trap SIGTERM and SIGINT signals
-trap 'echo "I hate the kill command"' SIGTERM
+trap 'echo "OK"' SIGTERM
 trap 'echo "Y U no love me?!"' SIGINT
 trap cleanup SIGQUIT SIGTERM
 
