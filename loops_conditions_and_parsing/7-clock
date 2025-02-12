@@ -9,7 +9,7 @@ while [ $hour -le 12 ]
 do
   while [ $minute -le 59 ]
   do
-    echo "$hour:$minute"
+    printf "%01d:%02d\n" $hour $minute
     minute=$((minute + 1))
   done
   hour=$((hour + 1))
